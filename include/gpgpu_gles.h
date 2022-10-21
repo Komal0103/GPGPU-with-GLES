@@ -35,3 +35,5 @@ int GPGPU_API gpgpu_chain_op_scalar_float(float s, EArithmeticOperator op);
 int GPGPU_API gpgpu_chain_op_array_float(float* arr, EArithmeticOperator op);
 
 int GPGPU_API gpgpu_chain_conv2d_float(float* kernel, int size);
+
+int GPGPU_API gpgpu_matrix_transpose (float* a, float* res);

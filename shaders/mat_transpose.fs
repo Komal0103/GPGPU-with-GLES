@@ -62,14 +62,11 @@ float unpack(vec4 texel)
     return value;
 }
 
-void main (void)
+void main(void)
 {
     float i = vTexCoord.s;
     float j = vTexCoord.t;
-    float result = 0.0;
-    for (float k = 0.0; k < 4.0; ++k)
-    {
-        result += unpack(texture2D(texture0, vec2(i, k / 4.0)) * 255.0) * unpack(texture2D(texture1, vec2(k / 4.0, j)) * 255.0);
-    }
-    gl_FragColor = pack(result);
+    vec4 texel1 = texture2D(texture1, vec2(j, i));
+    float a1 = unpack(texel1 * 255.0);
+    gl_FragColor = pack(a1);
 }
